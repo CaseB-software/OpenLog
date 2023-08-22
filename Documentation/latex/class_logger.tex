@@ -1,0 +1,56 @@
+\doxysection{Logger Class Reference}
+\hypertarget{class_logger}{}\label{class_logger}\index{Logger@{Logger}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_logger_a9393ad5b020f4cca0e82f65cda4ea1c5}\label{class_logger_a9393ad5b020f4cca0e82f65cda4ea1c5} 
+bool {\bfseries Set\+Log\+Filter} (const std\+::string key) noexcept
+\item 
+\Hypertarget{class_logger_aadbc3e0439dab6ea77e0e7fca991bf24}\label{class_logger_aadbc3e0439dab6ea77e0e7fca991bf24} 
+void {\bfseries Add\+Log\+Filter} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} $>$ filter)
+\item 
+\Hypertarget{class_logger_a6329c86a13b8c5a59f51b940e4f71794}\label{class_logger_a6329c86a13b8c5a59f51b940e4f71794} 
+bool {\bfseries Remove\+Log\+Filter} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_ad805cd943f29df3487e95a0d4a901a5a}\label{class_logger_ad805cd943f29df3487e95a0d4a901a5a} 
+\mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Log\+Filter} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_a780588c32cecfee8a8c0fbecbf27ed5a}\label{class_logger_a780588c32cecfee8a8c0fbecbf27ed5a} 
+void {\bfseries Add\+Log\+Target} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} $>$ target)
+\item 
+\Hypertarget{class_logger_a5624d8513262c5a3f3075b0026a66da8}\label{class_logger_a5624d8513262c5a3f3075b0026a66da8} 
+bool {\bfseries Remove\+Log\+Target} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_aecb4d97629a96423f7d8d7e3c3ce5f9d}\label{class_logger_aecb4d97629a96423f7d8d7e3c3ce5f9d} 
+\mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Log\+Target} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_aa1a64ac2a03211d1eab049d8dbea9b96}\label{class_logger_aa1a64ac2a03211d1eab049d8dbea9b96} 
+bool {\bfseries Add\+Active\+Log\+Target} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_a3a493daccf90865082bc9aa74d96f12d}\label{class_logger_a3a493daccf90865082bc9aa74d96f12d} 
+bool {\bfseries Remove\+Active\+Log\+Target} (const std\+::string key)
+\item 
+\Hypertarget{class_logger_a063e31f3984921ffff1bfaad813117b0}\label{class_logger_a063e31f3984921ffff1bfaad813117b0} 
+const \mbox{\hyperlink{struct_log_settings}{Log\+Settings}} \& {\bfseries Get\+Settings} ()
+\item 
+\Hypertarget{class_logger_a38f9b3f8894736585e87f362220688cf}\label{class_logger_a38f9b3f8894736585e87f362220688cf} 
+bool {\bfseries Change\+Settings} (SETTINGS settings, uint16\+\_\+t value)
+\item 
+\Hypertarget{class_logger_ad6cb3479e363a702787468b45d15e66a}\label{class_logger_ad6cb3479e363a702787468b45d15e66a} 
+bool {\bfseries Change\+Settings} (SETTINGS settings, bool value)
+\item 
+\Hypertarget{class_logger_a7eb090d4ae80301d38d07e6c3e6b8c7b}\label{class_logger_a7eb090d4ae80301d38d07e6c3e6b8c7b} 
+bool {\bfseries Log} (const std\+::string \&msg, const std\+::string \&code, const std\+::source\+\_\+location location=std\+::source\+\_\+location\+::current())
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_logger_a5789d11f8f1356e2192c0023a089cbc4}\label{class_logger_a5789d11f8f1356e2192c0023a089cbc4} 
+static \mbox{\hyperlink{class_logger}{Logger}} \& {\bfseries Get\+Instance} () noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/Logger.\+h\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/Logging.\+cpp\end{DoxyCompactItemize}
