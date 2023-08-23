@@ -8,7 +8,7 @@
 #include <memory>
 #include <chrono>
 
-// Testing commiting part 2
+// Testing commiting part 3
 
 namespace OpenLog {
 
