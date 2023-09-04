@@ -1,5 +1,9 @@
 \doxysection{Open\+Log\+::Log\+Target Class Reference}
 \hypertarget{class_open_log_1_1_log_target}{}\label{class_open_log_1_1_log_target}\index{OpenLog::LogTarget@{OpenLog::LogTarget}}
+
+
+{\ttfamily \#include $<$Open\+Log.\+h$>$}
+
 Inheritance diagram for Open\+Log\+::Log\+Target\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,24 +13,65 @@ Inheritance diagram for Open\+Log\+::Log\+Target\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_open_log_1_1_log_target_aa68297051a390e3f2a12c0f5d142e612}\label{class_open_log_1_1_log_target_aa68297051a390e3f2a12c0f5d142e612} 
-{\bfseries Log\+Target} (const std\+::string name)
+\mbox{\hyperlink{class_open_log_1_1_log_target_aa68297051a390e3f2a12c0f5d142e612}{Log\+Target}} (const std\+::string name)
 \item 
-\Hypertarget{class_open_log_1_1_log_target_a0a400225c42f42e0e7e2281356dd2685}\label{class_open_log_1_1_log_target_a0a400225c42f42e0e7e2281356dd2685} 
-virtual const std\+::string {\bfseries str} () const noexcept
+virtual \mbox{\hyperlink{class_open_log_1_1_log_target_aad6a4b21de45c6ed06baea9c4c69eebd}{\texorpdfstring{$\sim$}{\string~}\+Log\+Target}} ()
 \item 
-\Hypertarget{class_open_log_1_1_log_target_acbd17e24775fd75379ab05a81045f35f}\label{class_open_log_1_1_log_target_acbd17e24775fd75379ab05a81045f35f} 
-virtual bool {\bfseries Log\+Event} (const \mbox{\hyperlink{class_open_log_1_1_log}{Log}} \&log)
+virtual const std\+::string \mbox{\hyperlink{class_open_log_1_1_log_target_a904dedfd7ef1c4fe76bed76e0910e0ba}{str}} () const noexcept final
+\item 
+virtual bool \mbox{\hyperlink{class_open_log_1_1_log_target_acbd17e24775fd75379ab05a81045f35f}{Log\+Event}} (const \mbox{\hyperlink{class_open_log_1_1_log}{Log}} \&\mbox{\hyperlink{namespace_open_log_a553826e1c8bad4cab380072813012838}{log}})
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_open_log_1_1_log_target_a2c053dcd2718165dd7197a1336105214}\label{class_open_log_1_1_log_target_a2c053dcd2718165dd7197a1336105214} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} \&lc)
+std\+::ostream \& \mbox{\hyperlink{class_open_log_1_1_log_target_a2c053dcd2718165dd7197a1336105214}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} \&lc)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_open_log_1_1_log_target_aa68297051a390e3f2a12c0f5d142e612}\label{class_open_log_1_1_log_target_aa68297051a390e3f2a12c0f5d142e612} 
+\index{OpenLog::LogTarget@{OpenLog::LogTarget}!LogTarget@{LogTarget}}
+\index{LogTarget@{LogTarget}!OpenLog::LogTarget@{OpenLog::LogTarget}}
+\doxysubsubsection{\texorpdfstring{LogTarget()}{LogTarget()}}
+{\footnotesize\ttfamily Open\+Log\+::\+Log\+Target\+::\+Log\+Target (\begin{DoxyParamCaption}\item[{const std\+::string}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_open_log_1_1_log_target_aad6a4b21de45c6ed06baea9c4c69eebd}\label{class_open_log_1_1_log_target_aad6a4b21de45c6ed06baea9c4c69eebd} 
+\index{OpenLog::LogTarget@{OpenLog::LogTarget}!````~LogTarget@{\texorpdfstring{$\sim$}{\string~}LogTarget}}
+\index{````~LogTarget@{\texorpdfstring{$\sim$}{\string~}LogTarget}!OpenLog::LogTarget@{OpenLog::LogTarget}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LogTarget()}{\string~LogTarget()}}
+{\footnotesize\ttfamily Open\+Log\+::\+Log\+Target\+::\texorpdfstring{$\sim$}{\string~}\+Log\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_open_log_1_1_log_target_acbd17e24775fd75379ab05a81045f35f}\label{class_open_log_1_1_log_target_acbd17e24775fd75379ab05a81045f35f} 
+\index{OpenLog::LogTarget@{OpenLog::LogTarget}!LogEvent@{LogEvent}}
+\index{LogEvent@{LogEvent}!OpenLog::LogTarget@{OpenLog::LogTarget}}
+\doxysubsubsection{\texorpdfstring{LogEvent()}{LogEvent()}}
+{\footnotesize\ttfamily bool Open\+Log\+::\+Log\+Target\+::\+Log\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_open_log_1_1_log}{Log}} \&}]{log }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_l_t___console_a2497a39c2181503a3de9bd61bd0c9b7a}{LT\+\_\+\+Console}}.
+
+\Hypertarget{class_open_log_1_1_log_target_a904dedfd7ef1c4fe76bed76e0910e0ba}\label{class_open_log_1_1_log_target_a904dedfd7ef1c4fe76bed76e0910e0ba} 
+\index{OpenLog::LogTarget@{OpenLog::LogTarget}!str@{str}}
+\index{str@{str}!OpenLog::LogTarget@{OpenLog::LogTarget}}
+\doxysubsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily const std\+::string Open\+Log\+::\+Log\+Target\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_open_log_1_1_log_target_a2c053dcd2718165dd7197a1336105214}\label{class_open_log_1_1_log_target_a2c053dcd2718165dd7197a1336105214} 
+\index{OpenLog::LogTarget@{OpenLog::LogTarget}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!OpenLog::LogTarget@{OpenLog::LogTarget}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} \&}]{lc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/dev/1. Project Development Files/\+Open\+Log/src/Open\+Log.\+h\item 
-C\+:/dev/1. Project Development Files/\+Open\+Log/src/Open\+Log.\+cpp\end{DoxyCompactItemize}
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_open_log_8h}{Open\+Log.\+h}}\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_open_log_8cpp}{Open\+Log.\+cpp}}\end{DoxyCompactItemize}

@@ -1,29 +1,72 @@
 \doxysection{Open\+Log\+::Log Class Reference}
 \hypertarget{class_open_log_1_1_log}{}\label{class_open_log_1_1_log}\index{OpenLog::Log@{OpenLog::Log}}
+
+
+{\ttfamily \#include $<$Open\+Log.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_open_log_1_1_log_a7aabccb6d92db9562230b7c73e757eae}\label{class_open_log_1_1_log_a7aabccb6d92db9562230b7c73e757eae} 
-{\bfseries Log} (const std\+::string msg, const std\+::source\+\_\+location location=std\+::source\+\_\+location\+::current(), const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ timestamp=std\+::chrono\+::system\+\_\+clock\+::now())
+\mbox{\hyperlink{class_open_log_1_1_log_afc1cc7f4ccdf16a4c8ba126c31302d34}{Log}} (const std\+::string msg, const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ tags, const std\+::source\+\_\+location location=std\+::source\+\_\+location\+::current(), const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ timestamp=std\+::chrono\+::system\+\_\+clock\+::now())
+\item 
+virtual \mbox{\hyperlink{class_open_log_1_1_log_a459e992325fc71f3d33b1f318ae2b795}{\texorpdfstring{$\sim$}{\string~}\+Log}} ()=default
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_open_log_1_1_log_a4925795e99b73f0ad8fa3ae6d25df64a}\label{class_open_log_1_1_log_a4925795e99b73f0ad8fa3ae6d25df64a} 
-const std\+::string {\bfseries m\+\_\+msg}
+const std\+::string \mbox{\hyperlink{class_open_log_1_1_log_a4925795e99b73f0ad8fa3ae6d25df64a}{m\+\_\+msg}}
 \item 
-\Hypertarget{class_open_log_1_1_log_ac3b99d1e7025d0d42360c5c17a8063c7}\label{class_open_log_1_1_log_ac3b99d1e7025d0d42360c5c17a8063c7} 
-const std\+::source\+\_\+location {\bfseries m\+\_\+location}
+const std\+::source\+\_\+location \mbox{\hyperlink{class_open_log_1_1_log_ac3b99d1e7025d0d42360c5c17a8063c7}{m\+\_\+location}}
 \item 
-\Hypertarget{class_open_log_1_1_log_abc5af3f76b01b5b47dc5f1af82fd3270}\label{class_open_log_1_1_log_abc5af3f76b01b5b47dc5f1af82fd3270} 
-const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ {\bfseries m\+\_\+timestamp}
+const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \mbox{\hyperlink{class_open_log_1_1_log_abc5af3f76b01b5b47dc5f1af82fd3270}{m\+\_\+timestamp}}
 \item 
-\Hypertarget{class_open_log_1_1_log_a4e4d572394a1e360204cd8c2525991a9}\label{class_open_log_1_1_log_a4e4d572394a1e360204cd8c2525991a9} 
-std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ {\bfseries m\+\_\+tags}
+std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ \mbox{\hyperlink{class_open_log_1_1_log_a4e4d572394a1e360204cd8c2525991a9}{m\+\_\+tags}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_open_log_1_1_log_afc1cc7f4ccdf16a4c8ba126c31302d34}\label{class_open_log_1_1_log_afc1cc7f4ccdf16a4c8ba126c31302d34} 
+\index{OpenLog::Log@{OpenLog::Log}!Log@{Log}}
+\index{Log@{Log}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily Open\+Log\+::\+Log\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string}]{msg,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$}]{tags,  }\item[{const std\+::source\+\_\+location}]{location = {\ttfamily std\+:\+:source\+\_\+location\+:\+:current()},  }\item[{const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$}]{timestamp = {\ttfamily std\+:\+:chrono\+:\+:system\+\_\+clock\+:\+:now()} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_open_log_1_1_log_a459e992325fc71f3d33b1f318ae2b795}\label{class_open_log_1_1_log_a459e992325fc71f3d33b1f318ae2b795} 
+\index{OpenLog::Log@{OpenLog::Log}!````~Log@{\texorpdfstring{$\sim$}{\string~}Log}}
+\index{````~Log@{\texorpdfstring{$\sim$}{\string~}Log}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Log()}{\string~Log()}}
+{\footnotesize\ttfamily virtual Open\+Log\+::\+Log\+::\texorpdfstring{$\sim$}{\string~}\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_open_log_1_1_log_ac3b99d1e7025d0d42360c5c17a8063c7}\label{class_open_log_1_1_log_ac3b99d1e7025d0d42360c5c17a8063c7} 
+\index{OpenLog::Log@{OpenLog::Log}!m\_location@{m\_location}}
+\index{m\_location@{m\_location}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{m\_location}{m\_location}}
+{\footnotesize\ttfamily const std\+::source\+\_\+location Open\+Log\+::\+Log\+::m\+\_\+location}
+
+\Hypertarget{class_open_log_1_1_log_a4925795e99b73f0ad8fa3ae6d25df64a}\label{class_open_log_1_1_log_a4925795e99b73f0ad8fa3ae6d25df64a} 
+\index{OpenLog::Log@{OpenLog::Log}!m\_msg@{m\_msg}}
+\index{m\_msg@{m\_msg}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{m\_msg}{m\_msg}}
+{\footnotesize\ttfamily const std\+::string Open\+Log\+::\+Log\+::m\+\_\+msg}
+
+\Hypertarget{class_open_log_1_1_log_a4e4d572394a1e360204cd8c2525991a9}\label{class_open_log_1_1_log_a4e4d572394a1e360204cd8c2525991a9} 
+\index{OpenLog::Log@{OpenLog::Log}!m\_tags@{m\_tags}}
+\index{m\_tags@{m\_tags}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{m\_tags}{m\_tags}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_open_log_1_1_tag}{Tag}}$>$ Open\+Log\+::\+Log\+::m\+\_\+tags}
+
+\Hypertarget{class_open_log_1_1_log_abc5af3f76b01b5b47dc5f1af82fd3270}\label{class_open_log_1_1_log_abc5af3f76b01b5b47dc5f1af82fd3270} 
+\index{OpenLog::Log@{OpenLog::Log}!m\_timestamp@{m\_timestamp}}
+\index{m\_timestamp@{m\_timestamp}!OpenLog::Log@{OpenLog::Log}}
+\doxysubsubsection{\texorpdfstring{m\_timestamp}{m\_timestamp}}
+{\footnotesize\ttfamily const std\+::chrono\+::time\+\_\+point$<$std\+::chrono\+::system\+\_\+clock$>$ Open\+Log\+::\+Log\+::m\+\_\+timestamp}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/dev/1. Project Development Files/\+Open\+Log/src/Open\+Log.\+h\item 
-C\+:/dev/1. Project Development Files/\+Open\+Log/src/Open\+Log.\+cpp\end{DoxyCompactItemize}
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_open_log_8h}{Open\+Log.\+h}}\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_open_log_8cpp}{Open\+Log.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\doxysection{Log\+Handler.\+h}
+\hypertarget{_log_handler_8h_source}{}\label{_log_handler_8h_source}\index{C:/dev/1. Project Development Files/OpenLog/src/LogHandler.h@{C:/dev/1. Project Development Files/OpenLog/src/LogHandler.h}}
+\mbox{\hyperlink{_log_handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOGGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOGGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)\ }\textcolor{comment}{//\ ignore\ localtime\ usage}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 2397)\ }\textcolor{comment}{//\ ignore\ uint64\ to\ int\ narrowing}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_open_log_8h}{OpenLog.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <source\_location>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespace_open_log}{OpenLog}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00021\ T*\ \mbox{\hyperlink{_log_handler_8h_adfec7b5d46158a3e1cd15257de7a6acd}{FindInMap}}(\textcolor{keyword}{const}\ std::string\ key,\ std::unordered\_map<std::string,\ std::unique\_ptr<T>>\&\ map)\{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ buffer\ \{\ map.at(key)\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buffer.get();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ If\ key\ could\ not\ be\ found,\ return\ false}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{catch}(std::out\_of\_range\&\ e)\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_log_handler}{LogHandler}}\ final\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }Settings;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_log_handler}{LogHandler}}\&\ \mbox{\hyperlink{class_log_handler_a232ddb51ebb3f0e40b78dd293709a6ce}{GetInstance}}()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_log_handler_ae8728f5dc62eacf6c9499014c9c2aaa5}{\string~LogHandler}}()\ \ \ \ \{\};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_log_handler_a25e51c26ab68ee4367b68670cc805912}{SetLogFilter}}\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ std::string\ key)\ \ \ \ \ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_log_handler_a314378ddeec191cbf5b5b73ff21de31a}{RegisterTag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}}\&\ tag);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ //\ Log\ Filter\ Interaction}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ void\ \ \ \ \ \ \ \ AddLogFilter\ \ \ \ (std::unique\_ptr<LogFilter>\ filter);}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ bool\ \ \ \ \ \ \ \ RemoveLogFilter\ (const\ std::string\ key);}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ LogFilter*\ \ GetLogFilter\ \ \ \ (const\ std::string\ key);}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Log\ Target\ Interaction}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_log_handler_ad27d935062487b717000f676f195e406}{AddLogTarget}}\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_open_log_1_1_log_target}{LogTarget}}\&\ target);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_log_handler_a3b2bb2838081748627aad4eaed6f88b2}{RemoveLogTarget}}\ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ std::string\ key);}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_open_log_1_1_log_target}{LogTarget}}*\ \ \ \ \ \mbox{\hyperlink{class_log_handler_af48dd5a9b1e5e87ce9ff42a665d1db31}{GetLogTarget}}\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ std::string\ key);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_log_handler_a98084c6524169553d963a756c6af95f8}{AddActiveLogTarget}}\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ std::string\ key);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_log_handler_a75c027b56f9f5129ac45e14b1ee2bddd}{RemoveActiveLogTarget}}\ \ (\textcolor{keyword}{const}\ std::string\ key);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Settings}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_log_handler_a3ab1aa268fc8ea20c81e3c8912d78d2e}{ChangeSettings}}(\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}}\ settings,\ uint16\_t\ value);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_log_handler_a3ab1aa268fc8ea20c81e3c8912d78d2e}{ChangeSettings}}(\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}}\ settings,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ Settings\&\ \mbox{\hyperlink{class_log_handler_a429d2e2389e7351333e71a11a3b01a67}{GetSettings}}()\ \{\ \textcolor{keywordflow}{return}\ m\_settings;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Do\ the\ logging}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_open_log_1_1_log}{Log}}\ (\textcolor{keyword}{const}\ std::string\&\ msg,\ \textcolor{keyword}{const}\ std::vector<Tag>\ tag,\ \textcolor{keyword}{const}\ std::source\_location\ location=std::source\_location::current());}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_log_handler}{LogHandler}}();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_log_handler}{LogHandler}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_log_handler}{LogHandler}}\&\ rst)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{struct\ }Settings\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_showTime\ \ \ \ \ \{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_showTags\ \ \ \ \ \{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_showMsg\ \ \ \ \ \ \{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_showLocation\ \{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ uint8\_t\ m\_widthOfCodeTextBox\ \ \ \ \{\ 7\ \};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ uint8\_t\ m\_logMsgMaxSize\ \ \ \ \ \ \ \ \ \{\ 64\ \};}
+\DoxyCodeLine{00077\ \ \ \ \ \};}
+\DoxyCodeLine{00078\ \ \ \ \ Settings\ m\_settings;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Variables}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//std::unordered\_map<std::string,\ std::unique\_ptr<LogFilter>>\ m\_logFilters\ \ \{\ \};}}
+\DoxyCodeLine{00083\ \ \ \ \ std::unordered\_map<std::string,\ std::unique\_ptr<LogTarget>>\ m\_logTargets\ \ \ \ \{\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ std::unordered\_map<std::string,\ Tag>\ m\_registerdTags;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Current\ Profiles}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ m\_maxActiveLogTargets\ \{5\};}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<LogTarget*>\ m\_logTargetsActive\ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//LogFilter*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_logFilter\ \ \ \ \ \ \ \ \ \{\ nullptr\ \};}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ Non-\/Member\ Helper\ Functions}}
+\DoxyCodeLine{00097\ std::string\ \ \ \ \ \mbox{\hyperlink{_log_handler_8h_ac4c4a0d32feac088dcc0920831ebf0a4}{FormatTime}}\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ std::chrono::time\_point<std::chrono::system\_clock>\&\ time)\ \ \ \ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//\ Returns\ time\ in\ HH::MM::SS::XXX,\ XXX\ being\ milliseconds,\ it's\ in\ three\ digits}}
+\DoxyCodeLine{00098\ std::string\ \ \ \ \ \mbox{\hyperlink{_log_handler_8h_aa07ef3c36c8686a8963c88eee2b7269c}{FormatLocation}}\ \ \ \ (\textcolor{keyword}{const}\ std::source\_location\ location,\ \textcolor{keywordtype}{bool}\ oneLine=\textcolor{keyword}{true})\ \ \ \ \ \ \ \ \ \ \ \ noexcept;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

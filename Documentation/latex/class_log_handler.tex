@@ -1,0 +1,128 @@
+\doxysection{Log\+Handler Class Reference}
+\hypertarget{class_log_handler}{}\label{class_log_handler}\index{LogHandler@{LogHandler}}
+
+
+{\ttfamily \#include $<$Log\+Handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_log_handler_ae8728f5dc62eacf6c9499014c9c2aaa5}{\texorpdfstring{$\sim$}{\string~}\+Log\+Handler}} ()
+\item 
+bool \mbox{\hyperlink{class_log_handler_a25e51c26ab68ee4367b68670cc805912}{Set\+Log\+Filter}} (const std\+::string key) noexcept
+\item 
+void \mbox{\hyperlink{class_log_handler_a314378ddeec191cbf5b5b73ff21de31a}{Register\+Tag}} (const \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} \&tag)
+\item 
+void \mbox{\hyperlink{class_log_handler_ad27d935062487b717000f676f195e406}{Add\+Log\+Target}} (const \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \&target)
+\item 
+bool \mbox{\hyperlink{class_log_handler_a3b2bb2838081748627aad4eaed6f88b2}{Remove\+Log\+Target}} (const std\+::string key)
+\item 
+\mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_log_handler_af48dd5a9b1e5e87ce9ff42a665d1db31}{Get\+Log\+Target}} (const std\+::string key)
+\item 
+bool \mbox{\hyperlink{class_log_handler_a98084c6524169553d963a756c6af95f8}{Add\+Active\+Log\+Target}} (const std\+::string key)
+\item 
+bool \mbox{\hyperlink{class_log_handler_a75c027b56f9f5129ac45e14b1ee2bddd}{Remove\+Active\+Log\+Target}} (const std\+::string key)
+\item 
+bool \mbox{\hyperlink{class_log_handler_a3ab1aa268fc8ea20c81e3c8912d78d2e}{Change\+Settings}} (\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}} settings, uint16\+\_\+t value)
+\item 
+bool \mbox{\hyperlink{class_log_handler_a3512ae76a53543c9f1905ed3fa775e99}{Change\+Settings}} (\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}} settings, bool value)
+\item 
+const Settings \& \mbox{\hyperlink{class_log_handler_a429d2e2389e7351333e71a11a3b01a67}{Get\+Settings}} ()
+\item 
+bool \mbox{\hyperlink{class_log_handler_afce522452741069ab32b8f7a7a335c29}{Log}} (const std\+::string \&msg, const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ tag, const std\+::source\+\_\+location location=std\+::source\+\_\+location\+::current())
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_log_handler}{Log\+Handler}} \& \mbox{\hyperlink{class_log_handler_a232ddb51ebb3f0e40b78dd293709a6ce}{Get\+Instance}} () noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_log_handler_ae8728f5dc62eacf6c9499014c9c2aaa5}\label{class_log_handler_ae8728f5dc62eacf6c9499014c9c2aaa5} 
+\index{LogHandler@{LogHandler}!````~LogHandler@{\texorpdfstring{$\sim$}{\string~}LogHandler}}
+\index{````~LogHandler@{\texorpdfstring{$\sim$}{\string~}LogHandler}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LogHandler()}{\string~LogHandler()}}
+{\footnotesize\ttfamily Log\+Handler\+::\texorpdfstring{$\sim$}{\string~}\+Log\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_log_handler_a98084c6524169553d963a756c6af95f8}\label{class_log_handler_a98084c6524169553d963a756c6af95f8} 
+\index{LogHandler@{LogHandler}!AddActiveLogTarget@{AddActiveLogTarget}}
+\index{AddActiveLogTarget@{AddActiveLogTarget}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{AddActiveLogTarget()}{AddActiveLogTarget()}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Add\+Active\+Log\+Target (\begin{DoxyParamCaption}\item[{const std\+::string}]{key }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_ad27d935062487b717000f676f195e406}\label{class_log_handler_ad27d935062487b717000f676f195e406} 
+\index{LogHandler@{LogHandler}!AddLogTarget@{AddLogTarget}}
+\index{AddLogTarget@{AddLogTarget}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{AddLogTarget()}{AddLogTarget()}}
+{\footnotesize\ttfamily void Log\+Handler\+::\+Add\+Log\+Target (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \&}]{target }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a3512ae76a53543c9f1905ed3fa775e99}\label{class_log_handler_a3512ae76a53543c9f1905ed3fa775e99} 
+\index{LogHandler@{LogHandler}!ChangeSettings@{ChangeSettings}}
+\index{ChangeSettings@{ChangeSettings}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{ChangeSettings()}{ChangeSettings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Change\+Settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}}}]{settings,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a3ab1aa268fc8ea20c81e3c8912d78d2e}\label{class_log_handler_a3ab1aa268fc8ea20c81e3c8912d78d2e} 
+\index{LogHandler@{LogHandler}!ChangeSettings@{ChangeSettings}}
+\index{ChangeSettings@{ChangeSettings}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{ChangeSettings()}{ChangeSettings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Change\+Settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}}}]{settings,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a232ddb51ebb3f0e40b78dd293709a6ce}\label{class_log_handler_a232ddb51ebb3f0e40b78dd293709a6ce} 
+\index{LogHandler@{LogHandler}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_log_handler}{Log\+Handler}} \& Log\+Handler\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{class_log_handler_af48dd5a9b1e5e87ce9ff42a665d1db31}\label{class_log_handler_af48dd5a9b1e5e87ce9ff42a665d1db31} 
+\index{LogHandler@{LogHandler}!GetLogTarget@{GetLogTarget}}
+\index{GetLogTarget@{GetLogTarget}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{GetLogTarget()}{GetLogTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \texorpdfstring{$\ast$}{*} Log\+Handler\+::\+Get\+Log\+Target (\begin{DoxyParamCaption}\item[{const std\+::string}]{key }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a429d2e2389e7351333e71a11a3b01a67}\label{class_log_handler_a429d2e2389e7351333e71a11a3b01a67} 
+\index{LogHandler@{LogHandler}!GetSettings@{GetSettings}}
+\index{GetSettings@{GetSettings}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{GetSettings()}{GetSettings()}}
+{\footnotesize\ttfamily const Settings \& Log\+Handler\+::\+Get\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_log_handler_afce522452741069ab32b8f7a7a335c29}\label{class_log_handler_afce522452741069ab32b8f7a7a335c29} 
+\index{LogHandler@{LogHandler}!Log@{Log}}
+\index{Log@{Log}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$}]{tag,  }\item[{const std\+::source\+\_\+location}]{location = {\ttfamily std\+:\+:source\+\_\+location\+:\+:current()} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a314378ddeec191cbf5b5b73ff21de31a}\label{class_log_handler_a314378ddeec191cbf5b5b73ff21de31a} 
+\index{LogHandler@{LogHandler}!RegisterTag@{RegisterTag}}
+\index{RegisterTag@{RegisterTag}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{RegisterTag()}{RegisterTag()}}
+{\footnotesize\ttfamily void Log\+Handler\+::\+Register\+Tag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} \&}]{tag }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a75c027b56f9f5129ac45e14b1ee2bddd}\label{class_log_handler_a75c027b56f9f5129ac45e14b1ee2bddd} 
+\index{LogHandler@{LogHandler}!RemoveActiveLogTarget@{RemoveActiveLogTarget}}
+\index{RemoveActiveLogTarget@{RemoveActiveLogTarget}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{RemoveActiveLogTarget()}{RemoveActiveLogTarget()}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Remove\+Active\+Log\+Target (\begin{DoxyParamCaption}\item[{const std\+::string}]{key }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a3b2bb2838081748627aad4eaed6f88b2}\label{class_log_handler_a3b2bb2838081748627aad4eaed6f88b2} 
+\index{LogHandler@{LogHandler}!RemoveLogTarget@{RemoveLogTarget}}
+\index{RemoveLogTarget@{RemoveLogTarget}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{RemoveLogTarget()}{RemoveLogTarget()}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Remove\+Log\+Target (\begin{DoxyParamCaption}\item[{const std\+::string}]{key }\end{DoxyParamCaption})}
+
+\Hypertarget{class_log_handler_a25e51c26ab68ee4367b68670cc805912}\label{class_log_handler_a25e51c26ab68ee4367b68670cc805912} 
+\index{LogHandler@{LogHandler}!SetLogFilter@{SetLogFilter}}
+\index{SetLogFilter@{SetLogFilter}!LogHandler@{LogHandler}}
+\doxysubsubsection{\texorpdfstring{SetLogFilter()}{SetLogFilter()}}
+{\footnotesize\ttfamily bool Log\+Handler\+::\+Set\+Log\+Filter (\begin{DoxyParamCaption}\item[{const std\+::string}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_log_handler_8h}{Log\+Handler.\+h}}\item 
+C\+:/dev/1. Project Development Files/\+Open\+Log/src/\mbox{\hyperlink{_log_01_handler_8cpp}{Log Handler.\+cpp}}\end{DoxyCompactItemize}

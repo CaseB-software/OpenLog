@@ -1,0 +1,37 @@
+\doxysection{C\+:/dev/1. Project Development Files/\+Open\+Log/src/\+Open\+Log.cpp File Reference}
+\hypertarget{_open_log_8cpp}{}\label{_open_log_8cpp}\index{C:/dev/1. Project Development Files/OpenLog/src/OpenLog.cpp@{C:/dev/1. Project Development Files/OpenLog/src/OpenLog.cpp}}
+{\ttfamily \#include \"{}Open\+Log.\+h\"{}}\newline
+{\ttfamily \#include \"{}Log\+Handler.\+h\"{}}\newline
+{\ttfamily \#include \"{}Log\+Target\+\_\+\+Console.\+h\"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_open_log}{Open\+Log}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_open_log_aee3a2b2a26850fc3167ac01d9aece50f}{Open\+Log\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} \&tag)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_open_log_a82373e76f6999e0ab0ff01f6b2f12467}{Open\+Log\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_open_log_1_1_log_filter}{Log\+Filter}} \&lf)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_open_log_afd263bd4feff2776ac50034c15aebea9}{Open\+Log\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \&lt)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_aac459d15a86ccc6c54ee65615c5fdea4}{Open\+Log\+::init}} ()
+\item 
+void \mbox{\hyperlink{namespace_open_log_ad952f7a7c4e420a863a0d178f951d279}{Open\+Log\+::\+Add\+Log\+Target}} (const \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \&target)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_acff23e81a4573df93db25734297e4c47}{Open\+Log\+::\+Add\+Active\+Log\+Target}} (const std\+::string target, const std\+::source\+\_\+location location)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_aa9aaee836e6dce020edac7d250ac04fb}{Open\+Log\+::\+Remove\+Active\+Log\+Target}} (const std\+::string target, const std\+::source\+\_\+location location)
+\item 
+std\+::string \mbox{\hyperlink{namespace_open_log_ac5396059e36f78538235b82dc9f9ddae}{Open\+Log\+::\+Format\+Log}} (const \mbox{\hyperlink{class_open_log_1_1_log}{Log}} \&\mbox{\hyperlink{namespace_open_log_a553826e1c8bad4cab380072813012838}{log}})
+\item 
+\mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \& \mbox{\hyperlink{namespace_open_log_a171ec78f74b9a57db10c21f43a7e9ae3}{Open\+Log\+::\+Get\+Log\+Target}} (const std\+::string key)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_a553826e1c8bad4cab380072813012838}{Open\+Log\+::log}} (const std\+::string msg, const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ tag, const std\+::source\+\_\+location location)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_a43757d9cd50d0ecb851ba6d5787a1698}{Open\+Log\+::log}} (const std\+::string msg, const std\+::vector$<$ std\+::string $>$ tag, const std\+::source\+\_\+location location)
+\item 
+std\+::string \mbox{\hyperlink{namespace_open_log_af36682f9f2f987ea9ae903de2e53694e}{Open\+Log\+::\+Throw\+MSG}} (const std\+::string msg, const std\+::source\+\_\+location location)
+\end{DoxyCompactItemize}

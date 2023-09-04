@@ -1,0 +1,62 @@
+\doxysection{C\+:/dev/1. Project Development Files/\+Open\+Log/src/\+Open\+Log.h File Reference}
+\hypertarget{_open_log_8h}{}\label{_open_log_8h}\index{C:/dev/1. Project Development Files/OpenLog/src/OpenLog.h@{C:/dev/1. Project Development Files/OpenLog/src/OpenLog.h}}
+{\ttfamily \#include $<$source\+\_\+location$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_open_log_1_1_tag}{Open\+Log\+::\+Tag}}
+\item 
+class \mbox{\hyperlink{class_open_log_1_1_log}{Open\+Log\+::\+Log}}
+\item 
+class \mbox{\hyperlink{class_open_log_1_1_log_filter}{Open\+Log\+::\+Log\+Filter}}
+\item 
+class \mbox{\hyperlink{class_open_log_1_1_log_target}{Open\+Log\+::\+Log\+Target}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_open_log}{Open\+Log}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{Open\+Log\+::\+SETTINGS}} \{ \newline
+\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059da139a05edf4295027e06d732fecd53a3e}{Open\+Log\+::\+SHOW\+\_\+\+TIME}} = 0
+, \mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059da26140b617cf391a1acfedc8813f0960d}{Open\+Log\+::\+SHOW\+\_\+\+TAGS}} = 1
+, \mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059da6e20a5ee7677172cb7d1367e5d132361}{Open\+Log\+::\+SHOW\+\_\+\+MSG}} = 2
+, \mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059dad9a204e3f6a26baf6d88144efa09d320}{Open\+Log\+::\+SHOW\+\_\+\+LOCAITON}} = 3
+, \newline
+\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059dad97c92ed0a8c1ad908ec2a226fe27a52}{Open\+Log\+::\+CODE\+\_\+\+TEXT\+\_\+\+WIDTH}} = 4
+, \mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059da7d3d6568bffd5c69df520099698d3f02}{Open\+Log\+::\+LOG\+\_\+\+MSG\+\_\+\+MAX\+\_\+\+SIZE}} = 5
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_open_log_aac459d15a86ccc6c54ee65615c5fdea4}{Open\+Log\+::init}} ()
+\item 
+bool \mbox{\hyperlink{namespace_open_log_acff23e81a4573df93db25734297e4c47}{Open\+Log\+::\+Add\+Active\+Log\+Target}} (const std\+::string target, const std\+::source\+\_\+location location)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_aa9aaee836e6dce020edac7d250ac04fb}{Open\+Log\+::\+Remove\+Active\+Log\+Target}} (const std\+::string target, const std\+::source\+\_\+location location)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_a5aeb860100ca21886ddea1c8f1c5dae5}{Open\+Log\+::\+Change\+Settings}} (\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}} settings, uint16\+\_\+t value)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_ab1601464dd21f411524050e62c7a1ee9}{Open\+Log\+::\+Change\+Settings}} (\mbox{\hyperlink{namespace_open_log_a58034b9c743b1837491cae554f7d059d}{SETTINGS}} settings, bool value)
+\item 
+void \mbox{\hyperlink{namespace_open_log_ad952f7a7c4e420a863a0d178f951d279}{Open\+Log\+::\+Add\+Log\+Target}} (const \mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \&target)
+\item 
+\mbox{\hyperlink{class_open_log_1_1_log_target}{Log\+Target}} \& \mbox{\hyperlink{namespace_open_log_a171ec78f74b9a57db10c21f43a7e9ae3}{Open\+Log\+::\+Get\+Log\+Target}} (const std\+::string key)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_a553826e1c8bad4cab380072813012838}{Open\+Log\+::log}} (const std\+::string msg, const std\+::vector$<$ \mbox{\hyperlink{class_open_log_1_1_tag}{Tag}} $>$ tag, const std\+::source\+\_\+location location)
+\item 
+bool \mbox{\hyperlink{namespace_open_log_a43757d9cd50d0ecb851ba6d5787a1698}{Open\+Log\+::log}} (const std\+::string msg, const std\+::vector$<$ std\+::string $>$ tag, const std\+::source\+\_\+location location)
+\item 
+std\+::string \mbox{\hyperlink{namespace_open_log_af36682f9f2f987ea9ae903de2e53694e}{Open\+Log\+::\+Throw\+MSG}} (const std\+::string msg, const std\+::source\+\_\+location location)
+\item 
+std\+::string \mbox{\hyperlink{namespace_open_log_ac5396059e36f78538235b82dc9f9ddae}{Open\+Log\+::\+Format\+Log}} (const \mbox{\hyperlink{class_open_log_1_1_log}{Log}} \&\mbox{\hyperlink{namespace_open_log_a553826e1c8bad4cab380072813012838}{log}})
+\end{DoxyCompactItemize}
