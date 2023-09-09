@@ -1,6 +1,5 @@
 #include "LogHandler.h"
 
-
 LogHandler::LogHandler() {
 
 }
@@ -11,7 +10,7 @@ LogHandler& LogHandler::GetInstance() noexcept{
 }
 
 
-bool LogHandler::AddActiveLogTarget	(const std::string  key)		{
+bool LogHandler::addActiveLogTarget(const std::string  key)		{
 	try {
 		if (m_activeLogTargets.size() < m_maxActiveLogTargets) {
 			m_activeLogTargets.push_back(m_logTargets.at(key).get());
@@ -25,7 +24,7 @@ bool LogHandler::AddActiveLogTarget	(const std::string  key)		{
 		return false;
 	}
 }
-bool LogHandler::RemoveActiveLogTarget(const std::string key) {
+bool LogHandler::removeActiveLogTarget(const std::string key) {
 	bool success{ false };
 
 	int i{ 0 };
@@ -41,7 +40,7 @@ bool LogHandler::RemoveActiveLogTarget(const std::string key) {
 	return success;
 }
 
-bool 			LogHandler::Log				(const OpenLog::Log& log){
+bool 			LogHandler::log				(const OpenLog::Log& log){
 	bool success {false};
 
 	if(m_activeLogTargets.size() <= 0) { return false; }
@@ -68,10 +67,10 @@ Tag* LogHandler::getTag(const std::string& key) const{
 
 
 // Log Target
-void		LogHandler::AddLogTarget	(std::unique_ptr<LogTarget> target){
+void		LogHandler::addNewLogTarget(std::unique_ptr<LogTarget> target){
 	m_logTargets.try_emplace(target->str(), std::move(target));
 }
-bool		LogHandler::RemoveLogTarget	(const std::string key){
+bool		LogHandler::removeLogTarget(const std::string key){
 	try{
 		auto& foundTarget { m_logTargets.at(key) };		// Reference to the logCode if found
 		foundTarget.release();							// Delete LogCode
@@ -79,20 +78,21 @@ bool		LogHandler::RemoveLogTarget	(const std::string key){
 		return true;									
 	}
 	// If key could not be found, return false
-	catch(std::out_of_range& e){
+	catch(...){
+		// The above throws out of range if not caught
 		return false;
 	}
 }
 
 // Settings
-bool LogHandler::ChangeSettings(SETTINGS settings, uint16_t value){
+bool LogHandler::changeSettings(SETTINGS settings, int value){
 	switch(settings){
-			case CODE_TEXT_WIDTH:
-				m_settings.m_widthOfCodeTextBox = value;
+			case TAG_TEXT_WIDTH:
+				m_settings.widthOfTagTextBox = value;
 			return true;
 			break;
 			case LOG_MSG_MAX_SIZE:
-				m_settings.m_logMsgMaxSize = value;
+				m_settings.logMsgMaxSize = value;
 			return true;
 			break;
 		default:
@@ -101,22 +101,22 @@ bool LogHandler::ChangeSettings(SETTINGS settings, uint16_t value){
 	}
 	return false;
 }
-bool LogHandler::ChangeSettings(SETTINGS settings, bool value){
+bool LogHandler::changeSettings(SETTINGS settings, bool value){
 	switch(settings){
 		case SHOW_TIME:
-				m_settings.m_showTime = value;
+				m_settings.showTime = value;
 			return true;
 			break;
 		case SHOW_TAGS:
-				m_settings.m_showTags = value;
+				m_settings.showTags = value;
 			return true;
 			break;
 			case SHOW_MSG:
-				m_settings.m_showMsg = value;
+				m_settings.showMsg = value;
 			return true;
 			break;
-			case SHOW_LOCAITON:
-				m_settings.m_showLocation = value;
+			case SHOW_LOCATION:
+				m_settings.showLocation = value;
 			return true;
 			break;
 		default:
@@ -129,11 +129,10 @@ bool LogHandler::ChangeSettings(SETTINGS settings, bool value){
 
 
 // Non-Member Helper Functions
-std::string 	FormatTime		(const std::chrono::system_clock::time_point& time) 	noexcept {
-
+std::string 	defaultFormatTime(const std::chrono::system_clock::time_point& time) noexcept {
 	return std::format("{:%OH:%OM:%OS}", time);
 }
-std::string     FormatLocation	(const std::source_location location, bool oneLine) 		noexcept {
+std::string     defaultFormatLocation(const std::source_location location, bool oneLine)	noexcept {
 	std::ostringstream os;
 
 	if(!oneLine){
@@ -150,10 +149,10 @@ std::string     FormatLocation	(const std::source_location location, bool oneLin
 
 }
 
-bool    OpenLog::ChangeSettings(SETTINGS settings, uint16_t value) {
-	return LogHandler::GetInstance().ChangeSettings(settings, value);
+bool    OpenLog::changeSettings(SETTINGS settings, int value) {
+	return LogHandler::GetInstance().changeSettings(settings, value);
 }
-bool    OpenLog::ChangeSettings(SETTINGS settings, bool value) {
-	return LogHandler::GetInstance().ChangeSettings(settings, value);
+bool    OpenLog::changeSettings(SETTINGS settings, bool value) {
+	return LogHandler::GetInstance().changeSettings(settings, value);
 }
 

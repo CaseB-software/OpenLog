@@ -12,9 +12,17 @@
 
 using namespace OpenLog;
 
+struct Settings {
+	bool showTime;
+	bool showTags;
+	bool showMsg;
+	bool showLocation;
+	uint8_t widthOfTagTextBox;
+	uint8_t logMsgMaxSize;
+};
+
 class LogHandler final {
 public:
-	struct Settings;
 
 	static LogHandler& GetInstance() noexcept;
     ~LogHandler() 	{};
@@ -25,32 +33,24 @@ public:
 
 
 	// Log Target Interaction
-	void		AddLogTarget			(std::unique_ptr<LogTarget> target);
-	bool		RemoveLogTarget			(const std::string key);
-	bool 		AddActiveLogTarget		(const std::string key);
-	bool 		RemoveActiveLogTarget	(const std::string key);
+	void		addNewLogTarget			(std::unique_ptr<LogTarget> target);
+	bool		removeLogTarget			(const std::string key);
+	bool 		addActiveLogTarget		(const std::string key);
+	bool 		removeActiveLogTarget	(const std::string key);
 
     // Settings
-	bool ChangeSettings(SETTINGS settings, uint16_t value);
-    bool ChangeSettings(SETTINGS settings, bool value);
-	const Settings& GetSettings() { return m_settings; }
+	bool changeSettings(SETTINGS settings, int value);
+    bool changeSettings(SETTINGS settings, bool value);
+	const Settings& getSettings() { return m_settings; }
 
 	// Do the logging
-	bool Log (const OpenLog::Log& log);
+	bool log (const OpenLog::Log& log);
 
 private:
 	LogHandler();
     const LogHandler &operator=(const LogHandler& rst) = delete;
 
-	struct Settings {
-		bool m_showTime		{ true };
-		bool m_showTags		{ true };
-		bool m_showMsg		{ true };
-		bool m_showLocation	{ true };
-		uint8_t m_widthOfCodeTextBox	{ 7 };
-		uint8_t m_logMsgMaxSize			{ 64 };
-	};
-	Settings m_settings;
+	Settings m_settings{ true,true,true,true,7,64 };
 
 
 	std::unordered_map<std::string, std::unique_ptr<LogTarget>> m_logTargets	{ };
@@ -58,15 +58,15 @@ private:
 
 
 	// Current Profiles
-	static const int m_maxActiveLogTargets {5};
+	static const int		m_maxActiveLogTargets {5};
 	std::vector<LogTarget*> m_activeLogTargets{};
 
 
 };
 
 // Non-Member Helper Functions
-std::string 	FormatTime		(const std::chrono::time_point<std::chrono::system_clock>& time) 	noexcept; // Returns time in HH::MM::SS::XXX, XXX being milliseconds, it's in three digits
-std::string     FormatLocation	(const std::source_location location, bool oneLine=true) 			noexcept;
+std::string 	defaultFormatTime		(const std::chrono::time_point<std::chrono::system_clock>& time) 	noexcept; // Returns time in HH::MM::SS::XXX, XXX being milliseconds, it's in three digits
+std::string     defaultFormatLocation	(const std::source_location location, bool oneLine=true) 			noexcept;
 
 
 
