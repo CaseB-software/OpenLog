@@ -15,14 +15,16 @@ int main(int argc, char* argv[]) {
 	registerTag(tag);
 
 	Log testLog{ "msg" };
-	testLog.tag("LOG");
-	testLog.tag("WARNING");
-	testLog.tag("EXCEPT");
+	testLog.addTag("LOG");
+	testLog.addTag("WARNING");
+	testLog.addTag("EXCEPT");
 
 
 	if (!log(testLog)) {
 		std::cout << "false" << std::endl;
 	}
 
+	std::string i;
+	std::cin >> i;
 	return 0;
 }

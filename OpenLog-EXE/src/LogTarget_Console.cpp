@@ -13,7 +13,7 @@ void LT_Console_init()
 {
 	using namespace OpenLog;
 
-	addNewLogTarget(std::make_unique<LT_Console>(LT_Console{ "console" }));
+	registerLogTarget(std::make_unique<LT_Console>(LT_Console{ "console" }));
 	addActiveLogTarget("console");
 
 	Tag exception{ "EXCEPT" };

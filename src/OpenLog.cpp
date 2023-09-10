@@ -1,7 +1,20 @@
 #include "OpenLog.h"
-#include "LogHandler.h"
+#include "Application.h"
 
+/**
+ * \internal
+ * @file    OpenLog.h
+ * @author  Bradley Ryan, Case B Software
+ * @brief   This is the public API header
+ * @version 1.0.0-Pre-Release
+ * @date    2023-09-10
+ *
+ * @copyright   Copyright (c) 2023
+ *
+ */
 namespace OpenLog {
+
+	Application& app{ Application::getInstance() };
 
 	Tag::Tag(const std::string tag) : m_tag{ tag } {	}
 	Tag::~Tag() {	}
@@ -13,13 +26,13 @@ namespace OpenLog {
 
 	void registerTag(Tag& tag) {
 		std::unique_ptr<Tag> t{ std::make_unique<Tag>(tag) };
-		LogHandler::GetInstance().registerTag(t);
+		app.registerTag(t);
 	}
-	bool tagIsRegistered(const std::string& key) {
-		return  LogHandler::GetInstance().containsTag(key);
+	bool isTagRegistered(const std::string key) {
+		return  app.containsTag(key);
 	}
-	Tag* getRegisteredTag(const std::string& key) {
-		return  LogHandler::GetInstance().getTag(key);
+	Tag* getRegisteredTag(const std::string key) {
+		return  app.getTag(key);
 	}
 
 
@@ -35,7 +48,7 @@ namespace OpenLog {
 	{
 		m_tags.push_back(tag);
 	}
-	bool Log::tag(const std::string& tag) {
+	bool Log::addTag(const std::string& tag) {
 		// Check if a tag of the same string has been added already, if not, add it.
 		for (const Tag& t : m_tags) {
 			if (t.str() == tag) {
@@ -50,19 +63,19 @@ namespace OpenLog {
 		return false;
 	}
 	bool log(const std::ostringstream msg, const std::string tag, const std::source_location location) {
-		return LogHandler::GetInstance().log(Log{ msg.str(), tag, location});
+		return app.log(Log{ msg.str(), tag, location});
 	}
 	bool log(const std::string msg, const std::string tag, const std::source_location location) {
-		return LogHandler::GetInstance().log(Log{ msg, tag, location });
+		return app.log(Log{ msg, tag, location });
 	}
 	bool log(const Log& log) {
-		return LogHandler::GetInstance().log(log);
+		return app.log(log);
 	}
 
 	std::string defaultFormatLog(const Log& log) {
 		std::ostringstream os{};
 
-		auto settings = LogHandler::GetInstance().getSettings();
+		auto settings = app.getSettings();
 
 		if (settings.showTime)
 			os << '[' << defaultFormatTime(log.m_timestamp) << "]  ";
@@ -72,7 +85,7 @@ namespace OpenLog {
 
 			// Iterate through tags for the log and display each tag
 			for (const std::string& t : log.m_tags) {
-				Tag* tagBuf{ LogHandler::GetInstance().getTag(t) };
+				Tag* tagBuf{ app.getTag(t) };
 
 				if (tagBuf) {
 					os << '[' << std::setw(settings.widthOfTagTextBox) << std::left;
@@ -133,13 +146,16 @@ namespace OpenLog {
 		os << lt.str();
 		return os;
 	}
-	void    addNewLogTarget(std::unique_ptr<LogTarget> target) {
-		LogHandler::GetInstance().addNewLogTarget(std::move(target));
+	void    registerLogTarget(std::unique_ptr<LogTarget> target) {
+		app.registerLogTarget(std::move(target));
 	}
 	bool	addActiveLogTarget(const std::string target, const std::source_location location) {
-		return LogHandler::GetInstance().addActiveLogTarget(target);
+		return app.addActiveLogTarget(target);
 	}
 	bool    removeActiveLogTarget(const std::string target, const std::source_location location) {
-		return LogHandler::GetInstance().removeActiveLogTarget(target);
+		return app.removeActiveLogTarget(target);
+	}
+	std::ostringstream getAllActiveLogTargets() {
+		return app.getAllActiveLogTargets();
 	}
 }
