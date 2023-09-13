@@ -63,7 +63,7 @@ namespace OpenLog {
 		return false;
 	}
 	bool log(const std::ostringstream msg, const std::string tag, const std::source_location location) {
-		return app.log(Log{ msg.str(), tag, location});
+		return app.log(Log{ msg.str(), tag, location });
 	}
 	bool log(const std::string msg, const std::string tag, const std::source_location location) {
 		return app.log(Log{ msg, tag, location });
@@ -158,4 +158,8 @@ namespace OpenLog {
 	std::ostringstream getAllActiveLogTargets() {
 		return app.getAllActiveLogTargets();
 	}
+	LogTarget* getLogTarget(const std::string key) {
+		return app.getLogTarget(key);
+	}
+
 }

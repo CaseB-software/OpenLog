@@ -12,8 +12,6 @@
  * 
  */
 
-#define VERSION 1.0.0-Pre-Release
-
 #include <source_location>
 #include <string>
 #include <unordered_map>
@@ -38,6 +36,7 @@ namespace OpenLog {
         SHOW_LOCATION = 3,
         TAG_TEXT_WIDTH = 4,
         LOG_MSG_MAX_SIZE = 5,
+        TIME_OFFSET = 6,
     };
     /**
      * @brief           Input the desired SETTINGS value to then change change the value given. 
@@ -137,7 +136,7 @@ namespace OpenLog {
         LogTarget(const std::string name="New Log Target");
         virtual ~LogTarget();
     
-        virtual const std::string str() const noexcept final;        
+        const std::string str() const noexcept;        
         virtual bool LogEvent(const Log& log);
 
         friend std::ostream& operator<<(std::ostream& os, const LogTarget& lc);
@@ -150,7 +149,8 @@ namespace OpenLog {
     bool    addActiveLogTarget      (const std::string target, const std::source_location location = std::source_location::current());
     bool    removeActiveLogTarget   (const std::string target, const std::source_location location = std::source_location::current());
     
-    std::ostringstream getAllActiveLogTargets();
+    LogTarget*          getLogTarget(const std::string key);
+    std::ostringstream  getAllActiveLogTargets();
 }
 
 

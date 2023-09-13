@@ -22,66 +22,69 @@
 #include <vector>
 #include <algorithm>
 
-using namespace OpenLog;
-
-struct Settings {
-	bool showTime;
-	bool showTags;
-	bool showMsg;
-	bool showLocation;
-	uint8_t widthOfTagTextBox;
-	uint8_t logMsgMaxSize;
-};
-
-class Application final {
-public:
-
-	static Application& getInstance() noexcept;
-    ~Application() 	{};
-
-	void registerTag	(std::unique_ptr<Tag>& tag);
-	bool containsTag	(const std::string& key) const { return m_registerdTags.contains(key); }
-	Tag* getTag			(const std::string& key) const;
+namespace OpenLog {
 
 
-	// Log Target Interaction
-	void		registerLogTarget		(std::unique_ptr<LogTarget> target);
-	bool		removeLogTarget			(const std::string key);
-	bool 		addActiveLogTarget		(const std::string key);
-	bool 		removeActiveLogTarget	(const std::string key);
+	struct Settings {
+		bool showTime;
+		bool showTags;
+		bool showMsg;
+		bool showLocation;
+		uint8_t widthOfTagTextBox;
+		uint8_t logMsgMaxSize;
+		int timeOffset;
+	};
 
-	std::ostringstream getAllActiveLogTargets();
+	class Application final {
+	public:
 
-    // Settings
-	bool changeSettings(SETTINGS settings, int value);
-    bool changeSettings(SETTINGS settings, bool value);
-	const Settings& getSettings() { return m_settings; }
+		static Application& getInstance() noexcept;
+		~Application() {};
 
-	// Do the logging
-	bool log (const OpenLog::Log& log);
-
-private:
-	Application();
-    const Application&operator=(const Application& rst) = delete;
-
-	Settings m_settings{ true,true,true,true,7,64 };
+		void registerTag(std::unique_ptr<Tag>& tag);
+		bool containsTag(const std::string& key) const { return m_registerdTags.contains(key); }
+		Tag* getTag(const std::string& key) const;
 
 
-	std::unordered_map<std::string, std::unique_ptr<LogTarget>> m_logTargets	{ };
-	std::unordered_map<std::string, std::unique_ptr<Tag>>		m_registerdTags	{ };
+		// Log Target Interaction
+		void		registerLogTarget(std::unique_ptr<LogTarget> target);
+		bool		removeLogTarget(const std::string key);
+		bool 		addActiveLogTarget(const std::string key);
+		bool 		removeActiveLogTarget(const std::string key);
+
+		std::ostringstream	getAllActiveLogTargets();
+		LogTarget*			getLogTarget(const std::string key);
+
+		// Settings
+		bool changeSettings(SETTINGS settings, int value);
+		bool changeSettings(SETTINGS settings, bool value);
+		const Settings& getSettings() { return m_settings; }
+
+		// Do the logging
+		bool log(const OpenLog::Log& log);
+
+	private:
+		Application();
+		const Application& operator=(const Application& rst) = delete;
+
+		Settings m_settings{ true,true,true,true,7,64, -7 };
 
 
-	// Current Profiles
-	static const int		m_maxActiveLogTargets {5};
-	std::vector<LogTarget*> m_activeLogTargets{};
+		std::unordered_map<std::string, std::unique_ptr<LogTarget>> m_logTargets{ };
+		std::unordered_map<std::string, std::unique_ptr<Tag>>		m_registerdTags{ };
 
 
-};
-
-// Non-Member Helper Functions
-std::string 	defaultFormatTime		(const std::chrono::time_point<std::chrono::system_clock>& time) 	noexcept; // Returns time in HH::MM::SS::XXX, XXX being milliseconds, it's in three digits
-std::string     defaultFormatLocation	(const std::source_location location, bool oneLine=true) 			noexcept;
+		// Current Profiles
+		static const int		m_maxActiveLogTargets{ 5 };
+		std::vector<LogTarget*> m_activeLogTargets{};
 
 
+	};
 
+	// Non-Member Helper Functions
+	std::string 	defaultFormatTime(const std::chrono::time_point<std::chrono::system_clock>& time) 	noexcept; // Returns time in HH::MM::SS::XXX, XXX being milliseconds, it's in three digits
+	std::string     defaultFormatLocation(const std::source_location location, bool oneLine = true) 			noexcept;
+
+
+}
 #endif
