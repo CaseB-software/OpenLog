@@ -1,19 +1,7 @@
 #ifndef APP_H
 #define APP_H
 
-/**
- * \internal
- * @file    Application.h
- * @author  Bradley Ryan, Case B Software
- * @brief   Application object to hold instance configurations and functionality
- * @version 1.0.0-Pre-Release
- * @date    2023-09-10
- *
- * @copyright   Copyright (c) 2023
- *
- */
-
-#include "OpenLog.h"
+#include "../Public Headers/OpenLog.h"
 
 #include <unordered_map>
 #include <source_location>
@@ -72,7 +60,7 @@ namespace OpenLog {
 
 		Settings m_settings{ true,true,true,true,7,64, -7 };
 
-		std::string m_VERSION		{ "v0.1.0-dev" };
+		std::string m_VERSION		{ "v1.0.0" };
 		std::string m_COMPILED_DATE	{ __DATE__ + std::string(" at ") + __TIME__ };
 
 		std::unordered_map<std::string, std::unique_ptr<LogTarget>> m_logTargets{ };

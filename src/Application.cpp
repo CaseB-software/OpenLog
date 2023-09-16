@@ -1,16 +1,5 @@
 #include "Application.h"
 
-/**
- * \internal
- * @file    Application.cpp
- * @author  Bradley Ryan, Case B Software
- * @brief   Implementation details of the Application class
- * @version 1.0.0-Pre-Release
- * @date    2023-09-10
- *
- * @copyright   Copyright (c) 2023
- *
- */
 namespace OpenLog {
 
 	Application::Application() {
@@ -20,6 +9,13 @@ namespace OpenLog {
 		static Application instance;
 
 		return instance;
+	}
+
+	std::string Application::version()		const {
+		return m_VERSION;
+	}
+	std::string Application::compiledDate()	const {
+		return m_COMPILED_DATE;
 	}
 
 

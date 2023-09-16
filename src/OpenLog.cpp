@@ -1,17 +1,7 @@
-#include "OpenLog.h"
+#include "../Public Headers/OpenLog.h"
 #include "Application.h"
 
-/**
- * \internal
- * @file    OpenLog.h
- * @author  Bradley Ryan, Case B Software
- * @brief   This is the public API header
- * @version 1.0.0-Pre-Release
- * @date    2023-09-10
- *
- * @copyright   Copyright (c) 2023
- *
- */
+
 namespace OpenLog {
 
 	Application& app{ Application::getInstance() };
