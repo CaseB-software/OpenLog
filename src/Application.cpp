@@ -52,14 +52,14 @@ namespace OpenLog {
 		}
 		return success;
 	}
-	std::ostringstream Application::getAllActiveLogTargets() {
+	std::ostringstream Application::getAllActiveLogTargets() const {
 		std::ostringstream os;
 		for (auto& lt : m_activeLogTargets) {
 			os << ' [' << lt->str() << ']';
 		}
 		return os;
 	}
-	LogTarget* Application::getLogTarget(const std::string key) {
+	LogTarget* Application::getLogTarget(const std::string key) const {
 		if (m_logTargets.contains(key)) {
 			return m_logTargets.at(key).get();
 		}
@@ -70,7 +70,7 @@ namespace OpenLog {
 
 
 
-	bool 			Application::log(const OpenLog::Log& log) {
+	bool 			Application::log(const OpenLog::Log& log) const {
 		bool success{ false };
 
 		std::chrono::system_clock::time_point adjustedTime{ log.m_timestamp + std::chrono::hours(m_settings.timeOffset) };
@@ -168,7 +168,7 @@ namespace OpenLog {
 
 
 	// Non-Member Helper Functions
-	std::string 	defaultFormatTime(const std::chrono::system_clock::time_point& time) noexcept {
+	std::string 	printTime(const std::chrono::system_clock::time_point& time) noexcept {
 		return std::format("{:%OH:%OM:%OS}", time);
 	}
 	std::string     defaultFormatLocation(const std::source_location location, bool oneLine)	noexcept {

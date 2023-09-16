@@ -25,6 +25,8 @@
  */
 namespace OpenLog {
 
+    std::string version();
+    std::string compiledDate();
     /**
      * @brief   Pass these values into changeSettings() to change the configuration of the library 
      * 
@@ -125,7 +127,7 @@ namespace OpenLog {
     bool log                 (const std::ostringstream msg,  const std::string tag = "", const std::source_location location = std::source_location::current());
     bool log                 (const std::string msg,         const std::string tag = "", const std::source_location location = std::source_location::current());
 
-    std::string defaultFormatLog    (const Log& log);
+    std::string printLog    (const Log& log);
 
     
 

@@ -16,6 +16,15 @@ namespace OpenLog {
 
 	Application& app{ Application::getInstance() };
 
+
+	std::string version() {
+		return app.version();
+	}
+	std::string compiledDate() {
+		return app.compiledDate();
+	}
+
+
 	Tag::Tag(const std::string tag) : m_tag{ tag } {	}
 	Tag::~Tag() {	}
 	const std::string Tag::str() const noexcept { return m_tag; }
@@ -72,13 +81,13 @@ namespace OpenLog {
 		return app.log(log);
 	}
 
-	std::string defaultFormatLog(const Log& log) {
+	std::string printLog(const Log& log) {
 		std::ostringstream os{};
 
 		auto settings = app.getSettings();
 
 		if (settings.showTime)
-			os << '[' << defaultFormatTime(log.m_timestamp) << "]  ";
+			os << '[' << printTime(log.m_timestamp) << "]  ";
 
 
 		if (settings.showTags) {
