@@ -73,8 +73,6 @@ namespace OpenLog {
 	const std::vector<std::string>& Log::tags() const {
 		return m_tags;
 	}
-
-/*
 	Log::Log(Log&& other) :
 		m_msg		{ other.m_msg		},
 		m_location	{ other.m_location	},
@@ -84,12 +82,15 @@ namespace OpenLog {
 		
 	}
 	Log& Log::operator=(const Log& other) {
-		m_msg = other.m_msg;
-		m_location = other.m_location;
-		m_timestamp = other.m_timestamp;
-		m_tags = other.m_tags;
+		if (this != &other) {
+			m_msg		= other.m_msg;
+			m_location	= other.m_location;
+			m_timestamp = other.m_timestamp;
+			m_tags		= other.m_tags;
+
+			return *this;
+		}
 	}
-*/
 
 
 
