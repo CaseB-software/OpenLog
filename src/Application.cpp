@@ -69,10 +69,12 @@ namespace OpenLog {
 	bool 			Application::log(const OpenLog::Log& log) const {
 		bool success{ false };
 
-		std::chrono::system_clock::time_point adjustedTime{ log.m_timestamp + std::chrono::hours(m_settings.timeOffset) };
+		std::chrono::system_clock::time_point adjustedTime{ log.timestamp() + std::chrono::hours(m_settings.timeOffset)};
 
-		Log revisedLog{ log.m_msg, "", log.m_location, adjustedTime };
-		revisedLog.m_tags = log.m_tags;
+		Log revisedLog{ std::string{log.msg()}, "", log.location(), adjustedTime };
+		for (auto& tag : log.tags()) {
+			revisedLog.addTag(tag);
+		}
 
 		if (m_activeLogTargets.size() <= 0) { return false; }
 

@@ -61,6 +61,20 @@ namespace OpenLog {
 
 		return false;
 	}
+	const std::string_view Log::msg() const{
+		return m_msg;
+	}
+	const std::source_location& Log::location()  const {
+		return m_location;
+	}
+	const std::chrono::time_point<std::chrono::system_clock>& Log::timestamp() const {
+		return m_timestamp;
+	}
+	const std::vector<std::string>& Log::tags() const {
+		return m_tags;
+	}
+
+/*
 	Log::Log(Log&& other) :
 		m_msg		{ other.m_msg		},
 		m_location	{ other.m_location	},
@@ -69,7 +83,13 @@ namespace OpenLog {
 	{
 		
 	}
-
+	Log& Log::operator=(const Log& other) {
+		m_msg = other.m_msg;
+		m_location = other.m_location;
+		m_timestamp = other.m_timestamp;
+		m_tags = other.m_tags;
+	}
+*/
 
 
 
@@ -89,13 +109,13 @@ namespace OpenLog {
 		auto settings = app.getSettings();
 
 		if (settings.showTime)
-			os << '[' << printTime(log.m_timestamp) << "]  ";
+			os << '[' << printTime(log.timestamp()) << "]  ";
 
 
 		if (settings.showTags) {
 
 			// Iterate through tags for the log and display each tag
-			for (const std::string& t : log.m_tags) {
+			for (const std::string& t : log.tags()) {
 				Tag* tagBuf{ app.getTag(t) };
 
 				if (tagBuf) {
@@ -118,17 +138,17 @@ namespace OpenLog {
 		}
 		if (settings.showMsg) {
 			// Take the first 64 characters and align correctly
-			if (log.m_msg.length() < settings.logMsgMaxSize)
-				os << std::setw(settings.logMsgMaxSize) << std::left << log.m_msg;
+			if (log.msg().length() < settings.logMsgMaxSize)
+				os << std::setw(settings.logMsgMaxSize) << std::left << log.msg();
 			// If the msg is long, add spacing between next msg for readability
-			else if (log.m_msg.length() >= settings.logMsgMaxSize) {
-				os << log.m_msg;
+			else if (log.msg().length() >= settings.logMsgMaxSize) {
+				os << log.msg();
 				if (settings.showLocation)
 					os << std::endl << " > ";
 			}
 		}
 		if (settings.showLocation)
-			os << defaultFormatLocation(log.m_location);
+			os << defaultFormatLocation(log.location());
 
 		// Final steps
 		os << std::endl;
