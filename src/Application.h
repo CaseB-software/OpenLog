@@ -60,7 +60,7 @@ namespace OpenLog {
 
 		Settings m_settings{ true,true,true,true,7,64, -7 };
 
-		std::string m_VERSION		{ "v1.0.0" };
+		std::string m_VERSION		{ "v1.1.0" };
 		std::string m_COMPILED_DATE	{ __DATE__ + std::string(" at ") + __TIME__ };
 
 		std::unordered_map<std::string, std::unique_ptr<LogTarget>> m_logTargets{ };

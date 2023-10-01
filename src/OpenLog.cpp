@@ -61,6 +61,18 @@ namespace OpenLog {
 
 		return false;
 	}
+	Log::Log(Log&& other) :
+		m_msg		{ other.m_msg		},
+		m_location	{ other.m_location	},
+		m_timestamp	{ other.m_timestamp	},
+		m_tags		{ other.m_tags		}
+	{
+		
+	}
+
+
+
+
 	bool log(const std::ostringstream msg, const std::string tag, const std::source_location location) {
 		return app.log(Log{ msg.str(), tag, location });
 	}
